@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <textarea name="" id="textarea" cols="30" rows="10" onkeyup="updateValues()"></textarea>
+
+    <p><strong>Aantal letters</strong> ... <span id="letterCount"></span></p>
+    <p><strong>Aantal woorden</strong> ... <span id="wordCount"></span></p>
+    <p><strong>laatste woord</strong> ... <span id="lastWord"></span></p>
+    <p><strong>Syntra komt voor:</strong> ... <span id="containsSyntra"></span></p>
+
+    <p>
+        <button onclick="setToUpperCase()">To Uppercase</button>
+        <button onclick="setToLowerCase()">To Lowercase</button>
+        <button onclick="setToCamelCase()">To Camelcase</button>
+    </p>
+
+    <script>
+        const textarea = document.getElementById("textarea");
+
+        const letterCount = document.getElementById("letterCount");
+        const wordCount = document.querySelector("#wordCount");
+        const lastWord = document.querySelector("#lastWord");
+        const containsSyntra = document.querySelector("#containsSyntra");
+
+
+        function updateValues() {
+            let text = textarea.value;
+            let woorden = text.split(' ');
+
+            letterCount.innerHTML = text.length;
+            wordCount.innerHTML = woorden.length;
+            lastWord.innerHTML = woorden[woorden.length - 1];
+
+            if(text.indexOf("Syntra") != -1) {
+                containsSyntra.innerHTML = "Waar"
+            } else {
+                containsSyntra.innerHTML = "Niet waar"
+            }
+        }
+
+        function setToUpperCase() {
+            let text = textarea.value;
+            textarea.value = text.toUpperCase()
+        }
+
+        function setToLowerCase() {
+            let text = textarea.value;
+            textarea.value = text.toLowerCase()
+        }
+
+        function toCamelCase() {
+            var text = inputField.value;
+            var woorden = text.split(' ');
+
+            for(var i = 0; i < woorden.length; i++) {
+                var woord = woorden[i];
+                var eersteLetter = woord.charAt(0);
+                var eersteHoofdletter = eersteLetter.toUpperCase;
+
+                var nieuwWoord = eersteHoofdletter + woord.subString(1, woord.length);
+
+                wooden[i] = nieuwWoord
+            }
+
+            inputField.value = woorden.join(' ');
+        }
+
+    </script>
+</body>
+
+</html>
